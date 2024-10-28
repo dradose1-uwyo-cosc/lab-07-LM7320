@@ -1,8 +1,8 @@
-# Your Name Here
+# Luke Jackson
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# 11/03/24
+# Lab 07
+# Lab Section: 14
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -16,12 +16,30 @@
     # To do so you can use the methods `.isdigit()` or `.isnumeric()`
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
-
+message = "Give a posative number: "
+answer = input(message)
+answer = int(answer)
 factorial = 1
+factorial2 = 1
+factored = 0
+while(True):
+    if answer > 0:
+        if factored != answer:
+            factorial2 = factorial2 * factorial
+            factorial += 1
+            factored += 1
+            continue
+        else:
+            print(f"the factorial answer is {factorial2}")
+            break
+    else:
+        answer = input(message)
+        answer = int(answer)
+        continue
+
 
 print(f"The result of the factorial based on the given bound is {factorial}")
 
-print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
 # Sum all inputs. When the user enters 'exit' (regardless of casing) end the loop
 # Upon ending the loop print the sum
@@ -37,11 +55,19 @@ print("*"*75)
 # All this together means you will have an intensive while loop that includes multiple if statements, likely with some nesting 
 # The sum should start at 0 
 
+message2 = "Give any number or type 'exit' to stop: "
 num_sum = 0 
 
+while message2.lower() != "exit":
+    message2 = "Give any number or type 'exit' to stop: "
+    message2 = input(message2)
+    if message2 != "exit":
+        n_answer = int(message2)
+        num_sum = num_sum + n_answer
+        continue
+    
 print(f"Your final sum is {num_sum}")
 
-print("*"*75)
 # Now you will be creating a two operand calculator
 # It will support the following operators: +,-,/,*,% 
 # So accepted input is of the form `operand operator operand` 
@@ -59,4 +85,31 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
-        
+
+while(True):
+    message3 = "Input a number an operation then another number: "
+    answer3 = input(message3)
+    a_list = []
+    if "exit" not in answer3.lower():
+        if " " in answer3:
+            n_answer3 = "".join(answer3.split())
+        else:
+            n_answer3 = answer3
+        if "+" in n_answer3:
+            a_list = n_answer3.split('+')
+            x = int(a_list[0]) + int(a_list[1])
+            print(f"the sum is {x}")
+        elif "-" in n_answer3:
+            a_list = n_answer3.split('-')
+            x = int(a_list[0]) - int(a_list[1])
+            print(f"the difference is {x}")
+        elif "/" in n_answer3:
+            a_list = n_answer3.split('/')
+            x = int(a_list[0]) / int(a_list[1])
+            print(f"the quotient is {x}")
+        elif "*" in n_answer3:
+            a_list = n_answer3.split('*')
+            x = int(a_list[0]) * int(a_list[1])
+            print(f"the product is {x}")
+    else:
+        break
